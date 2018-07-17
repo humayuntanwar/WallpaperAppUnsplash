@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.example.humayunt.wallpaperappunsplash"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:27.+'
+    compile 'com.android.support:design:27.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //butterknife import
+    compile 'com.jakewharton:butterknife:8.8.1'
+    //circleimageview import
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    //retrofit import
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    //okhttp import
+    compile 'com.squareup.okhttp3:okhttp:3.11.0'
+    //Logging interceptor to log activity in android studio
+    compile 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    //Google Gson Import
+    compile 'com.google.code.gson:gson:2.8.5'
+    //retrofit gson convertor
+    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+    //glide import
+    compile 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+
+
+
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    testCompile 'junit:junit:4.12'
+}
