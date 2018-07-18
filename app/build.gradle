@@ -29,6 +29,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     //butterknife import
     compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //circleimageview import
     compile 'de.hdodenhof:circleimageview:2.2.0'
     //retrofit import
@@ -44,9 +45,7 @@ dependencies {
     //glide import
     compile 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-
-
-
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //floating Action Button
+    compile 'com.github.clans:fab:1.6.4'
     testCompile 'junit:junit:4.12'
 }
