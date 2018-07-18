@@ -9,12 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.module.AppGlideModule;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.humayunt.wallpaperappunsplash.Models.Photo;
 import com.example.humayunt.wallpaperappunsplash.R;
+import com.example.humayunt.wallpaperappunsplash.Utils.Functions;
 import com.example.humayunt.wallpaperappunsplash.Utils.GlideApp;
 import com.example.humayunt.wallpaperappunsplash.WebService.ApiInterface;
 import com.example.humayunt.wallpaperappunsplash.WebService.ServiceGenerator;
@@ -48,6 +50,7 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
     @BindView(R.id.activity_fullscreen_photo_fab_favorite)
     FloatingActionButton favorite;
      private Unbinder unbinder;
+    private  Bitmap photoBitmap;
 
 
     @Override
@@ -90,6 +93,7 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
                         @Override
                         public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                             fullscreenphoto.setImageBitmap(resource);
+                            photoBitmap = resource;
                         }
                     });
 
@@ -107,6 +111,15 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
     }
     @OnClick(R.id.activity_fullscreen_photo_fab_wallpaper)
     public  void setFabWallpaper(){
+        if(photoBitmap!= null){
+            if(Functions.setWallpaper(this, photoBitmap)){
+                Toast.makeText(this, "WALLPAPER SET SUCCESSFULLY",Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(this, "WALLPAPER SET FAIL",Toast.LENGTH_LONG).show();
+
+            }
+        }
         fabMenu.close(true);
     }
 
