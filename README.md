@@ -1,6 +1,6 @@
 # WallpaperAppUnsplash
 
-### Choose ans Set Wallpapers to your Home Screen 
+### Choose and Set Wallpapers to your Home Screen 
 ### Save WallPapers as Favorite
 
 A Wallpapers App Created Using Unsplased API with Android libraries such as Retrofit, GSON, Realm, ButterKnife, Glide 4.
