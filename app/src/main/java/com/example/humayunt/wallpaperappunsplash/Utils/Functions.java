@@ -36,17 +36,20 @@ public class Functions {
     }
     public static boolean setWallpaper(Activity activity, Bitmap bitmap){
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay()
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+        Bitmap tempBitmap =scaleCenterCrop(bitmap,height,width);
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(activity);
         try{
-            wallpaperManager.setBitmap(bitmap);
+            wallpaperManager.setBitmap(tempBitmap);
             return  true;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
     }
-    public Bitmap scaleCenterCrop(Bitmap source, int newHeight, int newWidth) {
+    public static Bitmap scaleCenterCrop(Bitmap source, int newHeight, int newWidth) {
         int sourceWidth = source.getWidth();
         int sourceHeight = source.getHeight();
 

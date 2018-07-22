@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //Calling Photo Fragment on the main Activity.
         PhotosFragment photosFragment = new PhotosFragment();
         Functions.changeMainFragment(MainActivity.this, photosFragment);
     }
@@ -82,18 +83,19 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_photos) {
+            //Photo Fragment
             PhotosFragment photosFragment = new PhotosFragment();
             Functions.changeMainFragment(MainActivity.this, photosFragment);
         } else if (id == R.id.nav_collections) {
+            //Collection fragment
             CollectionsFragment collectionsFragment = new CollectionsFragment();
             Functions.changeMainFragment(MainActivity.this, collectionsFragment);
-
         } else if (id == R.id.nav_favorite) {
+            //Favorite Fragment.
             FavoriteFragment favoriteFragment = new FavoriteFragment();
             Functions.changeMainFragment(MainActivity.this, favoriteFragment);
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

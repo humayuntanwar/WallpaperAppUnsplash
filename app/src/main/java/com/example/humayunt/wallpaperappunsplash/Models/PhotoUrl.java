@@ -2,11 +2,13 @@ package com.example.humayunt.wallpaperappunsplash.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by HumayunT on 7/17/2018.
  */
 
-public class PhotoUrl {
+public class PhotoUrl extends RealmObject {
     @SerializedName("full")
     private  String full;
     @SerializedName("regular")

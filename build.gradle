@@ -4,13 +4,18 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
-        maven {url 'https://mave.google.com'}
+        google()
+        //maven {url 'https://mave.google.com'}
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
 
+        classpath 'com.android.tools.build:gradle:3.1.3'
+        //for realm
+        classpath "io.realm:realm-gradle-plugin:5.3.1"
+        //for butterknife
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
+
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -24,10 +29,15 @@ allprojects {
             url "https://maven.google.com"
         }
     }
+    /*tasks.withType(JavaCompile) {
+        sourceCompatibility = 1.7
+        targetCompatibility = 1.7
+    }*/
+
 }
 
-task clean(type: Delete) {
+/*task clean(type: Delete) {
     delete rootProject.buildDir
-}
+}*/
 apply plugin: 'com.jakewharton.butterknife'
 
